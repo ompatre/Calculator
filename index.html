@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="calculator.css">
+    <script>
+
+      function display(x){
+
+        if(x=='clear'){
+          document.getElementById("a").value = 0;
+          num1=0;
+          num2=0;
+        }
+
+        else if (x=='<<') {
+          document.getElementById("a").value=document.getElementById("a").value.slice(0,-1);
+        }
+
+        else if(x=='.'){
+          if(!isNaN(document.getElementById("a").value))
+            document.getElementById("a").value += x;
+        }
+
+        else if(x=='+/-'){
+          if(!isNaN(document.getElementById("a").value))
+            document.getElementById("a").value=document.getElementById("a").value*-1;
+        }
+
+        else if(x=='='){
+          document.getElementById("a").value=eval(document.getElementById("a").value);
+        }
+
+        else{
+        if (document.getElementById("a").value==0) {
+            document.getElementById("a").value=x;
+        }
+        else{
+            document.getElementById("a").value+=x;
+        }
+      }
+    }
+
+    </script>
+    <title>calculator</title>
+  </head>
+  <body>
+
+    <div class="calculator">
+
+      <input type="text" id="a" class="calculator-screen" value="0" />
+
+      <div class="calculator-keys">
+
+        <button type="button" onclick="display(7)" value="7">7</button>
+        <button type="button" onclick="display(8)" onvalue="8">8</button>
+        <button type="button" onclick="display(9)" value="9">9</button>
+
+        <button type="button" onclick="display('+')" class="operator" value="+">+</button>
+
+        <button type="button" onclick="display(4)" value="4">4</button>
+        <button type="button" onclick="display(5)" value="5">5</button>
+        <button type="button" onclick="display(6)" value="6">6</button>
+
+        <button type="button" onclick="display('-')" class="operator" value="-">-</button>
+
+
+        <button type="button" onclick="display(1)" value="1">1</button>
+        <button type="button" onclick="display(2)" value="2">2</button>
+        <button type="button" onclick="display(3)" value="3">3</button>
+
+        <button type="button" onclick="display('*')" class="operator" value="*">*</button>
+
+        <button type="button" onclick="display(0)" value="0">0</button>
+
+        <button type="button" onclick="display('.')" class="decimal" value=".">.</button>
+
+        <button type="button" onclick="display('clear')" class="clear" value="CL">CL</button>
+        <button type="button" onclick="display('/')" class="operator" value="/">/</button>
+        <button type="button" onclick="display('+/-')" class="plusMinus" value="+/-">+/-</button>
+        <button type="button" onclick="display('=')" class="equal-sign" value="=">=</button>
+        <button type="button" onclick="display('<<')" class="backSpace" value="<<"><<</button>
+
+      </div>
+    </div>
+
+  </body>
+</html>
